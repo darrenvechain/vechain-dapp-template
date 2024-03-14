@@ -1,19 +1,22 @@
 {
-  "name": "vechain-dapp-starter",
+  "name": "@vechain-dapp-starter/root",
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "predev": "docker compose up -d --wait",
     "dev": "turbo dev",
     "lint": "turbo lint",
+    "deploy": "turbo deploy",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.9.0",
   "engines": {
     "node": ">=18"
   }

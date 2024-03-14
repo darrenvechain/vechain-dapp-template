@@ -1,81 +1,33 @@
-# Turborepo starter
+# vechain-dapp-template
 
-This is an official starter Turborepo.
+This is a template for building a dApp on the VeChainThor blockchain.
 
-## Using this example
+## Getting Started
 
-Run the following command:
+### Prerequisites
 
-```sh
-npx create-turbo@latest
-```
+- [Node.js](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/en/docs/install)
+- [Docker](https://docs.docker.com/install/)
+    - For running Thor Solo, Thor Insights and Inspector.
+- [VeWorld](https://www.veworld.net/)
+    - The VeChainThor wallet for interacting with the dApp.
+    - Use this mnemonic to access the thor solo
+      wallet: `denial kitchen pet squirrel other broom bar gas better priority spoil cross`
+    - Navigate to the network settings and add the thor solo node: `http://localhost:8669`
+### Installation
 
-## What's inside?
+1. Clone the repository
 
-This Turborepo includes the following packages/apps:
+2. Install dependencies `yarn install`
 
-### Apps and Packages
+3. Start the development environment `yarn dev`
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### Setup
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+| Service       | URL                                            |
+|---------------|------------------------------------------------|
+| Frontend DApp | [http://localhost:3000](http://localhost:3000) |
+| Inspector     | [http://localhost:3001](http://localhost:3001) |
+| Insights      | [http://localhost:3002](http://localhost:3002) |
+| Thor Solo     | [http://localhost:8669](http://localhost:8669) |

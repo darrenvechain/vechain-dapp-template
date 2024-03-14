@@ -1,0 +1,40 @@
+{
+  "name": "@vechain-dapp-starter/contracts",
+  "version": "1.0.0",
+  "scripts": {
+    "compile": "hardhat compile",
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js",
+    "predeploy": "yarn compile",
+    "deploy": "hardhat run scripts/deploy.ts --network vechain_solo"
+  },
+  "types": "src/index.ts",
+  "main": "dist/index.js",
+  "files": [
+    "typechain-types",
+    "artifacts",
+    "contracts"
+  ],
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/chai": "^4.2.0",
+    "@types/mocha": ">=9.1.0",
+    "@vechain/sdk-hardhat-plugin": "^1.0.0-beta.1",
+    "chai": "^4.2.0",
+    "esbuild": "^0.20.1",
+    "hardhat": "^2.21.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solidity-coverage": "^0.8.1",
+    "ts-node": "^10.9.2",
+    "typechain": "^8.3.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "ethers": "^6.11.1"
+  }
+}

@@ -10,8 +10,10 @@
       "dependsOn": ["^lint"]
     },
     "dev": {
+      "persistent": true,
       "cache": false,
-      "persistent": true
-    }
+      "dependsOn": ["@vechain-dapp-starter/contracts#deploy"]
+    },
+    "deploy": {}
   }
 }
