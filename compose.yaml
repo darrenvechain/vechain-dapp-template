@@ -21,12 +21,13 @@ services:
 
   inspector:
     image: ghcr.io/vechain/inspector-app:V1.1.0
+    container_name: inspector
     environment:
       NODE_ENV: production
       VUE_APP_SOLO_URL: http://localhost:8669
     volumes:
       # This allows us to pre-populate the contracts. Your local path should contain a file called `contracts.json`
-      - "./packages/contracts/inspector:/usr/share/nginx/html/abis"
+      - "./packages/contracts/output:/usr/share/nginx/html/abis"
     ports:
       - 3001:80
 
