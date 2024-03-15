@@ -10,7 +10,8 @@
   },
   "include": [
     "src",
-    "scripts"
+    "scripts",
+    "test"
   ],
   "exclude": [
     "typechain-types",

@@ -1,22 +1,17 @@
-import { ethers, network, vechainProvider } from "hardhat";
+import { ethers, vechainProvider } from "hardhat";
 import { Counter__factory } from "../typechain-types";
 import * as fs from "fs";
 import * as path from "path";
+import { DeployedContract } from "../src/types";
+import { CounterContractName } from "../src";
 
-type InspectorContract = {
-  name: string;
-  address: string;
-  abi: any;
-  genesisId: string;
-};
-
-const writeInspectorJson = (contracts: InspectorContract[]) => {
+const writeInspectorJson = (contracts: DeployedContract[]) => {
   // if the inspector directory doesn't exist, create it
-  if (!fs.existsSync(path.join(__dirname, "..", "inspector"))) {
-    fs.mkdirSync(path.join(__dirname, "..", "inspector"));
+  if (!fs.existsSync(path.join(__dirname, "..", "output"))) {
+    fs.mkdirSync(path.join(__dirname, "..", "output"));
   }
 
-  const _path = path.join(__dirname, "..", "inspector", "contracts.json");
+  const _path = path.join(__dirname, "..", "output", "contracts.json");
 
   fs.writeFileSync(_path, JSON.stringify(contracts, null, 2));
 };
@@ -42,7 +37,7 @@ async function main() {
 
   writeInspectorJson([
     {
-      name: "Count",
+      name: CounterContractName,
       address: address,
       abi: Counter__factory.abi,
       genesisId: (genesisBlock as any).hash as string,

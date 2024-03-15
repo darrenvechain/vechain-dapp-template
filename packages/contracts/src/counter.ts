@@ -1,4 +1,8 @@
 import { Counter__factory as CounterFactory } from "../typechain-types";
+import contracts from "../output/contracts.json";
+import { DeployedContract } from "./types";
+
+const CounterContractName = "Counter";
 
 const counterInterface = CounterFactory.createInterface();
 
@@ -8,4 +12,14 @@ const getCounterAbi = (key: CounterMethodKey) => {
   return JSON.parse(counterInterface.getFunction(key).format("json"));
 };
 
-export { getCounterAbi, counterInterface, CounterFactory };
+const getDeployedCounter = (): DeployedContract | undefined => {
+  return contracts.find((c) => c.name === CounterContractName);
+};
+
+export {
+  getCounterAbi,
+  counterInterface,
+  CounterFactory,
+  getDeployedCounter,
+  CounterContractName,
+};

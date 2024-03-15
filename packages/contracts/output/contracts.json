@@ -1,7 +1,7 @@
 [
   {
-    "name": "Count",
-    "address": "0xda2691ED3f32957807C3629354243263692c310A",
+    "name": "Counter",
+    "address": "0x4f124F3c7dFC3bfddF32841C4d2ccB36e7841920",
     "abi": [
       {
         "inputs": [],

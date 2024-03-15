@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "compile": "hardhat compile",
-    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --outfile=dist/index.js",
     "predeploy": "yarn compile",
     "deploy": "hardhat run scripts/deploy.ts --network vechain_solo"
   },

@@ -5,9 +5,8 @@ import App from "./App.tsx";
 import { DAppKitProvider } from "@vechain/dapp-kit-react";
 import "./index.css";
 
-fetch('http://localhost:8669/blocks/0').then(async (res) => {
-  const genesis = await res.json()
-
+fetch("http://localhost:8669/blocks/0").then(async (res) => {
+  const genesis = await res.json();
 
   ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
@@ -20,6 +19,4 @@ fetch('http://localhost:8669/blocks/0').then(async (res) => {
       </DAppKitProvider>
     </React.StrictMode>,
   );
-
-})
-
+});

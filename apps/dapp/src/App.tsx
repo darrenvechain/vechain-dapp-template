@@ -5,10 +5,22 @@ import "./App.css";
 import { useDeployCounter } from "./hooks/useDeployCounter.ts";
 import { TxStatus } from "./components/TxStatus.tsx";
 import { Counter } from "./components/Counter.tsx";
+import { getDeployedCounter } from "@vechain-dapp-starter/contracts";
+import { useMemo } from "react";
+
+const existingCounter = getDeployedCounter();
 
 function App() {
   const { account } = useWallet();
   const { counterAddress, deploy, status } = useDeployCounter();
+
+  const contractAddress = useMemo(() => {
+    if (existingCounter?.address) {
+      return existingCounter.address;
+    }
+
+    return counterAddress;
+  }, [counterAddress]);
 
   return (
     <>
@@ -24,7 +36,7 @@ function App() {
       <div className="card">
         <WalletButton />
 
-        {!counterAddress ? (
+        {!contractAddress ? (
           <>
             <button disabled={!account} onClick={deploy}>
               Deploy Counter
@@ -32,7 +44,7 @@ function App() {
             {status && <TxStatus status={status} />}
           </>
         ) : (
-          <Counter counterAddress={counterAddress} />
+          <Counter counterAddress={contractAddress} />
         )}
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR

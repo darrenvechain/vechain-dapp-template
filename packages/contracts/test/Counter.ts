@@ -1,8 +1,4 @@
-import {
-  time,
-  loadFixture,
-} from "@nomicfoundation/hardhat-toolbox/network-helpers";
-import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
+import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
@@ -27,7 +23,7 @@ describe("Counter", function () {
       const { counter } = await loadFixture(deployCounterFixture);
 
       const tx = await counter.increment();
-      tx.wait();
+      await tx.wait();
       expect(await counter.count()).to.equal(1);
     });
   });
@@ -43,11 +39,11 @@ describe("Counter", function () {
       const { counter } = await loadFixture(deployCounterFixture);
 
       const increment = await counter.increment();
-      increment.wait();
+      await increment.wait();
       expect(await counter.count()).to.equal(1);
 
       const decrement = await counter.decrement();
-      decrement.wait();
+      await decrement.wait();
       expect(await counter.count()).to.equal(0);
     });
   });

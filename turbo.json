@@ -1,19 +1,33 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalDependencies": [
+    "**/.env.*local"
+  ],
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "dependsOn": [
+        "^build",
+        "@vechain-dapp-starter/contracts#deploy"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**"
+      ]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": [
+        "^lint"
+      ]
     },
     "dev": {
       "persistent": true,
       "cache": false,
-      "dependsOn": ["@vechain-dapp-starter/contracts#deploy"]
+      "dependsOn": [
+        "@vechain-dapp-starter/contracts#build"
+      ]
     },
-    "deploy": {}
+    "deploy": {
+      "dependsOn": []
+    }
   }
 }
