@@ -1,9 +1,8 @@
-import { Transaction } from "thor-devkit";
 import { useState } from "react";
 import { TxStatus } from "../types/transactions.ts";
 import { useConnex } from "@vechain/dapp-kit-react";
 
-export const useSendTransaction = (clauses: Transaction.Clause[]) => {
+export const useSendTransaction = (clauses: Connex.Vendor.TxMessage) => {
   const connex = useConnex();
   const [status, setStatus] = useState<TxStatus | undefined>();
 

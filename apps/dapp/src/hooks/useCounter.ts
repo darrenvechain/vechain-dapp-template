@@ -17,13 +17,14 @@ export const useCounter = (counterAddress: string) => {
   const [count, setCount] = useState<number>();
 
   const clauses = useMemo(() => {
-    return [
-      {
-        to: counterAddress,
-        value: 0,
-        data: counterInterface.encodeFunctionData("increment"),
-      },
-    ];
+    const clause = {
+      to: counterAddress,
+      value: 0,
+      data: counterInterface.encodeFunctionData("increment"),
+      comment: "Increment counter",
+    };
+
+    return [clause, clause, clause];
   }, [counterAddress]);
 
   const { status, send } = useSendTransaction(clauses);

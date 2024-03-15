@@ -11,6 +11,7 @@ export const useDeployCounter = () => {
         to: null,
         value: 0,
         data: CounterFactory.bytecode,
+        comment: "Deploy Counter Contract",
       },
     ];
   }, []);
